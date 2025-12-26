@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter for Your Crush</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background: linear-gradient(to bottom right, #ff7eb9, #ffb3d9);
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 30px;
+            border: 2px solid #ff69b4;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+            transition: all 0.5s ease;
+        }
+        input:focus {
+            border-color: #ff1493;
+            box-shadow: 0 4px 20px rgba(255, 20, 147, 0.5);
+            outline: none;
+            transform: scale(1.05);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.5);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff1493;
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+            transform: scale(1.1);
+        }
+        .greeting, .letter-container, .flowers {
+            display: none;
+        }
+        .letter-container {
+            background-color: #f5c3ce;
+            padding: 20px;
+            border-radius: 20px;
+            border: 2px solid #ff69b4;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+            margin-top: 30px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 24px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Your Name</h1>
+    <input type="text" id="nameInput" placeholder="Your name" onkeypress="handleKeyPress(event)">
+    <button onclick="checkName()">Submit</button>
+
+    <div class="greeting" id="greetingMessage"></div>
+    <div class="letter-container" id="crushLetter">
+        <div class="letter">
+            <p>My Dearest <span id="namePlaceholder"></span>,</p>
+            <p>I just wanted to take a moment to let you know how much you mean to me. Every time I see you my heart skips a beat , whenever i think about you it makes me smile. You're like a beautiful flower in full bloom, and my days are brighter just by thinking of you. 🌸💖</p>
+            <p>Your smile and your eyes is the most beautiful thing I've ever seen. I admire not just your beauty but also your kindness the way you respect and also the way you see the world ❤️</p>
+            <p>I hope we can spend more time together and create some cute memories. Just wanted to know that you're special to me</p>
+            <p>I want to be yours forever,</p>
+            <p>Your Harshittt 🌹</p>
+            <div class="hearts">💖🌹💐💫</div>
+        </div>
+    </div>
+    <div class="flowers" id="flowersPopOut">🌸💐🌺🌷🌼</div>
+
+    <link rel="stylesheet" href="script.js">
+    <audio id="backgroundMusic" src="your-music-file.mp3"></audio>
+
+<script> 
+    function checkName() {
+        const name = document.getElementById('nameInput').value;
+        const button = document.querySelector("button");
+        const music = document.getElementById("backgroundMusic");
+
+        button.style.animation = 'pulse 0.5s ease-out';
+        setTimeout(() => button.style.animation = 'none', 500);
+
+        if (name.toLowerCase() === 'niharika') {
+            displayLetter(name);
+            music.play();  // Play the music when Niharika enters her name
+        } else {
+            alert('You have entered the wrong name!');
+        }
+    }
+
+    function displayLetter(name) {
+        document.getElementById('greetingMessage').textContent = `Hello, ${name}! Welcome to this page.`;
+        document.getElementById('namePlaceholder').textContent = name;
+        document.getElementById('crushLetter').style.display = 'block';
+        document.getElementById('crushLetter').style.animation = 'fadeIn 1s ease-out';
+        document.getElementById('flowersPopOut').style.display = 'block';
+        document.getElementById('flowersPopOut').style.animation = 'fadeIn 1.5s ease-out';
+    }
+</script>
+
+</body>
+</html>
